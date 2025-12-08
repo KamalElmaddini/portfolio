@@ -20,7 +20,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 .info-group {
@@ -66,6 +66,12 @@
     padding: 2rem;
     border-radius: var(--border-radius);
     border: 1px solid var(--card-border);
+    transition: var(--transition);
+}
+
+.about-bio-text:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
 }
 
 @media (max-width: 768px) {
