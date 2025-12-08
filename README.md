@@ -69,4 +69,4 @@ This command builds the project and pushes the `dist` folder to the `gh-pages` b
 - **Location**: Rabat, Morocco
 
 ---
-*© 2024 Kamal Elmaddini. All Rights Reserved.*
+*© 2025 Kamal Elmaddini. All Rights Reserved.*
