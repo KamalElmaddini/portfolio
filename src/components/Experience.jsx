@@ -55,7 +55,7 @@ const Experience = () => {
 
                         <div className="timeline-item">
                             <div className="timeline-date">2025 - Present</div>
-                            <h4 className="timeline-role">Bachelor's degree in Computer Engineering</h4>
+                            <h4 className="timeline-role">Bachelor's Degree in Computer Engineering</h4>
                             <span className="timeline-loc">High-Tech - Rabat</span>
                             <p>
                                 Currently pursuing a Bachelor's degree in Computer Engineering (Génie Informatique). My studies focus on software development, algorithms, and system architecture.
