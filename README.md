@@ -1,16 +1,72 @@
-# React + Vite
+# Kamal Elmaddini - Full Stack Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio website built with React and Vite, showcasing my projects, skills, and professional experience.
 
-Currently, two official plugins are available:
+[**View Live Demo**](https://KamalElmaddini.github.io/portfolio/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices.
+- **Modern UI**: Clean and professional interface with smooth animations and a premium look.
+- **Dynamic Content**: Interactive sections for Experience, Education, and Projects.
+- **Key Sections**:
+  - **Hero**: Captivating introduction with call-to-action.
+  - **About Me**: Professional summary and personal interests.
+  - **Experience & Education**: Timeline of professional career and academic background.
+  - **Skills**: Visual representation of technical expertise.
+  - **Projects**: Showcase of development work with links.
+  - **Contact**: Direct communication channels.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Technology Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: [React.js](https://react.dev/) (v19)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: Native CSS3 (Custom Properties, Flexbox, Grid)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: GitHub Pages
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📦 Installation & Setup
+
+To run this project locally on your machine:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/KamalElmaddini/portfolio.git
+   cd kamal-portfolio
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+## 🚢 Deployment
+
+This project is deployed to GitHub Pages. The deployment process is automated via scripts in `package.json`.
+
+To deploy updates manually:
+
+```bash
+npm run deploy
+```
+
+This command builds the project and pushes the `dist` folder to the `gh-pages` branch.
+
+## 📬 Contact
+
+- **Kamal Elmaddini**
+- **Role**: Full Stack Developer
+- **Location**: Rabat, Morocco
+
+---
+*© 2024 Kamal Elmaddini. All Rights Reserved.*
