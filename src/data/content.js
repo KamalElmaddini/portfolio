@@ -196,7 +196,7 @@ const en = {
     contact: {
         title: 'Get In Touch',
         heading: "Let's Talk",
-        text: 'Open to opportunities in Europe: developer roles, digital communication and content projects, and social projects with young people. Freelance work welcome too.',
+        text: 'Have a project, a role or a collaboration in mind? Developer roles, digital communication and content projects, social projects with young people, or freelance work: send me a message.',
         phone: 'Phone · WhatsApp',
         email: 'Email',
         location: 'Location',
@@ -342,7 +342,7 @@ const fr = {
     contact: {
         title: 'Contact',
         heading: 'Parlons-en',
-        text: 'Ouvert aux opportunités en Europe : postes de développeur, projets de communication digitale et de contenu, et projets sociaux auprès des jeunes. Missions freelance bienvenues.',
+        text: 'Un projet, un poste ou une collaboration en tête ? Postes de développeur, projets de communication digitale et de contenu, projets sociaux auprès des jeunes ou missions freelance : écrivez-moi.',
         phone: 'Téléphone · WhatsApp',
         email: 'E-mail',
         location: 'Localisation',
