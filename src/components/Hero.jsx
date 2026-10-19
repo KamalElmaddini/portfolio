@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileDown, Plane } from 'lucide-react';
+import { FileDown } from 'lucide-react';
 import './Hero.css';
 import profileImg from '../assets/profile.jpg';
 import { shared } from '../data/content';
@@ -22,11 +22,6 @@ const Hero = () => {
                         <span className="role-sub">{h.subtitle}</span>
                     </h2>
                     <p className="description">{h.text}</p>
-
-                    <p className="relocation">
-                        <Plane size={16} />
-                        {h.badge}
-                    </p>
 
                     <div className="hero-btns">
                         <a href="#contact" className="btn">{h.contact}</a>

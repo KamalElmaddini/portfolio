@@ -54,25 +54,12 @@
     margin-top: 6px;
 }
 
-.relocation {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-color);
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
-    padding: 8px 16px;
-    border-radius: 50px;
-    margin-bottom: 30px;
-}
 
 .description {
     font-size: 1.2rem;
     color: var(--text-secondary);
     max-width: 550px;
-    margin-bottom: 24px;
+    margin-bottom: 40px;
     line-height: 1.8;
 }
 
@@ -186,9 +173,6 @@
         font-size: 1.1rem;
     }
 
-    .relocation {
-        font-size: 0.8rem;
-    }
 }
 
 @media (max-width: 480px) {
