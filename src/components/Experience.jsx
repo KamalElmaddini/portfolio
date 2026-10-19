@@ -1,7 +1,7 @@
 import React from 'react';
 import { Briefcase, GraduationCap, HeartHandshake, ExternalLink } from 'lucide-react';
 import './Experience.css';
-import { experience, education, volunteering } from '../data/profile';
+import { useLang } from '../i18n';
 
 const TimelineItem = ({ item }) => (
     <div className="timeline-item">
@@ -15,39 +15,41 @@ const TimelineItem = ({ item }) => (
         )}
         {item.points && (
             <ul className="timeline-points">
-                {item.points.map((p, i) => <li key={i}>{p}</li>)}
+                {item.points.map((p) => <li key={p}>{p}</li>)}
             </ul>
         )}
     </div>
 );
 
 const Experience = () => {
+    const { t } = useLang();
+    const e = t.experience;
     return (
         <section id="experience" className="experience-section">
             <div className="container">
-                <h2 className="section-title">Experience & Education</h2>
+                <h2 className="section-title">{e.title}</h2>
 
                 <div className="timeline-grid">
                     <div className="timeline-column">
                         <h3 className="column-title">
                             <Briefcase className="icon" size={24} />
-                            Professional Experience
+                            {e.workTitle}
                         </h3>
-                        {experience.map((item) => <TimelineItem key={item.role} item={item} />)}
+                        {e.work.map((item) => <TimelineItem key={item.role} item={item} />)}
                     </div>
 
                     <div className="timeline-column">
                         <h3 className="column-title">
                             <GraduationCap className="icon" size={24} />
-                            Education
+                            {e.educationTitle}
                         </h3>
-                        {education.map((item) => <TimelineItem key={item.role} item={item} />)}
+                        {e.education.map((item) => <TimelineItem key={item.role} item={item} />)}
 
                         <h3 className="column-title column-title--spaced">
                             <HeartHandshake className="icon" size={24} />
-                            Volunteering
+                            {e.volunteeringTitle}
                         </h3>
-                        {volunteering.map((item) => <TimelineItem key={item.role} item={item} />)}
+                        {e.volunteering.map((item) => <TimelineItem key={item.role} item={item} />)}
                     </div>
                 </div>
             </div>

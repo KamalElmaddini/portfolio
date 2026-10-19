@@ -1,70 +1,80 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, ArrowUpRight } from 'lucide-react';
 import './Contact.css';
+import { shared } from '../data/content';
+import { useLang } from '../i18n';
 
 const Contact = () => {
+    const { t } = useLang();
+    const c = t.contact;
+
+    const items = [
+        { key: 'phone', Icon: Phone, label: c.phone, value: shared.phone, href: shared.socials.whatsapp, external: true },
+        { key: 'email', Icon: Mail, label: c.email, value: shared.email, href: `mailto:${shared.email}` },
+        { key: 'location', Icon: MapPin, label: c.location, value: c.locationValue, href: shared.mapsUrl, external: true },
+    ];
+
+    // Opens the visitor's email app with the message pre-filled.
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const data = new FormData(e.currentTarget);
+        const body = `${data.get('message')}\n\n— ${data.get('name')} (${data.get('email')})`;
+        const url = `mailto:${shared.email}?subject=${encodeURIComponent(data.get('subject'))}&body=${encodeURIComponent(body)}`;
+        window.location.href = url;
+    };
+
     return (
         <section id="contact" className="contact-section">
             <div className="container">
-                <h2 className="section-title">Get In Touch</h2>
+                <h2 className="section-title">{c.title}</h2>
 
                 <div className="contact-container">
                     <div className="contact-info">
-                        <h3>Let's Talk</h3>
-                        <p>
-                            Open to opportunities in Europe — developer roles, digital communication and content projects,
-                            and social projects with young people. Freelance work welcome too.
-                        </p>
+                        <h3>{c.heading}</h3>
+                        <p>{c.text}</p>
 
                         <div className="contact-details">
-                            <div className="contact-item">
-                                <div className="icon-box">
-                                    <Phone size={20} />
-                                </div>
-                                <div>
-                                    <h4>Phone</h4>
-                                    <p>+212 638 964 606</p>
-                                </div>
-                            </div>
-
-                            <div className="contact-item">
-                                <div className="icon-box">
-                                    <Mail size={20} />
-                                </div>
-                                <div>
-                                    <h4>Email</h4>
-                                    <p><a href="mailto:kamalelmaddini@gmail.com">kamalelmaddini@gmail.com</a></p>
-                                </div>
-                            </div>
-
-                            <div className="contact-item">
-                                <div className="icon-box">
-                                    <MapPin size={20} />
-                                </div>
-                                <div>
-                                    <h4>Location</h4>
-                                    <p>Rabat, Morocco</p>
-                                </div>
-                            </div>
+                            {items.map((item) => {
+                                const { key, label, value, href, external } = item;
+                                const ItemIcon = item.Icon;
+                                return (
+                                <a
+                                    key={key}
+                                    className="contact-item"
+                                    href={href}
+                                    {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                                >
+                                    <span className="icon-box">
+                                        <ItemIcon size={20} />
+                                    </span>
+                                    <span className="contact-text">
+                                        <span className="contact-label">{label}</span>
+                                        <span className="contact-value">{value}</span>
+                                    </span>
+                                    <ArrowUpRight className="contact-arrow" size={18} />
+                                </a>
+                                );
+                            })}
                         </div>
                     </div>
 
-                    <form className="contact-form" action="mailto:kamalelmaddini@gmail.com" method="POST" encType="text/plain">
+                    <form className="contact-form" onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required />
+                            <input id="contact-name" type="text" name="name" placeholder={c.form.name} aria-label={c.form.name} required />
                         </div>
                         <div className="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required />
+                            <input id="contact-email" type="email" name="email" placeholder={c.form.email} aria-label={c.form.email} required />
                         </div>
                         <div className="form-group">
-                            <input type="text" name="subject" placeholder="Subject" required />
+                            <input id="contact-subject" type="text" name="subject" placeholder={c.form.subject} aria-label={c.form.subject} required />
                         </div>
                         <div className="form-group">
-                            <textarea name="message" placeholder="Message" rows="5" required></textarea>
+                            <textarea id="contact-message" name="message" placeholder={c.form.message} aria-label={c.form.message} rows="5" required></textarea>
                         </div>
                         <button type="submit" className="btn">
-                            Send Message <Send size={16} style={{ marginLeft: '8px' }} />
+                            {c.form.send} <Send size={16} style={{ marginLeft: '8px' }} />
                         </button>
+                        <p className="form-note">{c.form.note}</p>
                     </form>
                 </div>
             </div>

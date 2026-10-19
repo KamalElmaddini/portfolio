@@ -1,31 +1,37 @@
 import React from 'react';
-import { Database, Layout, Server, TrendingUp } from 'lucide-react';
+import { Database, Layout, Server, TrendingUp, Clapperboard } from 'lucide-react';
 import './Skills.css';
-import { skills } from '../data/profile';
+import { shared } from '../data/content';
+import { useLang } from '../i18n';
 
-const icons = {
-    layout: Layout,
-    server: Server,
-    database: Database,
-    trending: TrendingUp,
-};
+const icons = { layout: Layout, server: Server, database: Database, trending: TrendingUp, content: Clapperboard };
 
 const Skills = () => {
+    const { t } = useLang();
+    const s = t.skills;
+    const groups = [
+        ...shared.skills,
+        { id: 'marketing', icon: 'trending', items: s.marketing },
+        { id: 'content', icon: 'content', items: s.content },
+    ];
+
     return (
         <section id="skills" className="skills-section">
             <div className="container">
-                <h2 className="section-title">Skills</h2>
+                <h2 className="section-title">{s.title}</h2>
                 <div className="skills-grid">
-                    {skills.map((skill) => {
-                        const Icon = icons[skill.icon];
+                    {groups.map((group) => {
+                        const Icon = icons[group.icon];
                         return (
-                            <div className="skill-card" key={skill.category}>
-                                <div className="skill-icon">
-                                    <Icon size={24} />
+                            <div className={`skill-card skill-card--${group.id}`} key={group.id}>
+                                <div className="skill-head">
+                                    <div className="skill-icon">
+                                        <Icon size={22} />
+                                    </div>
+                                    <h3 className="skill-category">{s.categories[group.id]}</h3>
                                 </div>
-                                <h3 className="skill-category">{skill.category}</h3>
-                                <ul className="skill-list">
-                                    {skill.items.map((item) => <li key={item}>{item}</li>)}
+                                <ul className="skill-chips">
+                                    {group.items.map((item) => <li key={item} className="skill-chip">{item}</li>)}
                                 </ul>
                             </div>
                         );

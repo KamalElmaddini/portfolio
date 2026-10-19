@@ -1,38 +1,41 @@
 import React from 'react';
 import './About.css';
-import { bio, stats, languages, interests } from '../data/profile';
+import { shared } from '../data/content';
+import { useLang } from '../i18n';
 
 const About = () => {
+    const { t } = useLang();
+    const a = t.about;
     return (
         <section id="about" className="about-section">
             <div className="container">
-                <h2 className="section-title">About Me</h2>
+                <h2 className="section-title">{a.title}</h2>
                 <div className="about-bio-text">
-                    <p>{bio}</p>
+                    <p>{a.bio}</p>
                 </div>
 
                 <div className="stats-strip">
-                    {stats.map((s) => (
-                        <div className="stat" key={s.label}>
-                            <span className="stat-value">{s.value}</span>
-                            <span className="stat-label">{s.label}</span>
+                    {shared.stats.map((value, i) => (
+                        <div className="stat" key={a.stats[i]}>
+                            <span className="stat-value">{value}</span>
+                            <span className="stat-label">{a.stats[i]}</span>
                         </div>
                     ))}
                 </div>
 
                 <div className="about-stats">
                     <div className="info-group">
-                        <h3 className="info-title">Languages</h3>
+                        <h3 className="info-title">{a.languagesTitle}</h3>
                         <ul className="info-list">
-                            {languages.map((l) => (
+                            {a.languages.map((l) => (
                                 <li key={l.name}><strong>{l.name}</strong><span>{l.level}</span></li>
                             ))}
                         </ul>
                     </div>
                     <div className="info-group">
-                        <h3 className="info-title">Interests</h3>
+                        <h3 className="info-title">{a.interestsTitle}</h3>
                         <ul className="info-list">
-                            {interests.map((i) => <li key={i}>{i}</li>)}
+                            {a.interests.map((i) => <li key={i}>{i}</li>)}
                         </ul>
                     </div>
                 </div>

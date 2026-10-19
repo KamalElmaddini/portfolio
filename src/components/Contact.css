@@ -30,16 +30,22 @@
 .contact-details {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 14px;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
+    padding: 12px 16px 12px 12px;
+    margin: 0 -12px;
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+    transition: var(--transition);
 }
 
 .icon-box {
+    flex-shrink: 0;
     width: 50px;
     height: 50px;
     background-color: rgba(37, 99, 235, 0.1);
@@ -48,18 +54,66 @@
     align-items: center;
     justify-content: center;
     color: var(--accent-color);
+    transition: var(--transition);
 }
 
-.contact-item h4 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.contact-label {
+    font-size: 1.05rem;
+    font-weight: 600;
     color: var(--text-color);
 }
 
-.contact-item p {
-    margin-bottom: 0;
+.contact-value {
     font-size: 0.95rem;
     color: var(--text-secondary);
+    overflow-wrap: anywhere;
+}
+
+.contact-arrow {
+    margin-left: auto;
+    flex-shrink: 0;
+    color: var(--text-secondary);
+    opacity: 0;
+    transform: translate(-4px, 4px);
+    transition: var(--transition);
+}
+
+/* Hover: icon colors invert, row lifts slightly */
+.contact-item:hover,
+.contact-item:focus-visible {
+    background-color: var(--bg-color);
+    border-color: var(--card-border);
+    outline: none;
+}
+
+.contact-item:hover .icon-box,
+.contact-item:focus-visible .icon-box {
+    background-color: var(--accent-color);
+    color: var(--bg-secondary);
+    transform: scale(1.06);
+}
+
+.contact-item:hover .contact-arrow,
+.contact-item:focus-visible .contact-arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+    color: var(--accent-color);
+}
+
+.contact-item:focus-visible {
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.form-note {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: center;
 }
 
 .contact-form {
@@ -97,5 +151,32 @@
     .contact-container {
         grid-template-columns: 1fr;
         padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-container {
+        padding: 22px 18px;
+        gap: 40px;
+    }
+
+    .contact-item {
+        gap: 14px;
+        margin: 0 -8px;
+        padding: 10px 8px;
+    }
+
+    .icon-box {
+        width: 42px;
+        height: 42px;
+    }
+
+    .contact-value {
+        font-size: 0.9rem;
+        overflow-wrap: normal;
+    }
+
+    .contact-arrow {
+        display: none;
     }
 }
