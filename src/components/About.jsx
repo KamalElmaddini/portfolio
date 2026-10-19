@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.css';
+import { bio, stats, languages, interests } from '../data/profile';
 
 const About = () => {
     return (
@@ -7,29 +8,31 @@ const About = () => {
             <div className="container">
                 <h2 className="section-title">About Me</h2>
                 <div className="about-bio-text">
-                    <p>
-                        Innovative and motivated Full Stack Developer with a strong foundation in digital development
-                        and project management. Experienced in building responsive web applications and optimizing
-                        user experiences through freelance projects and internships. Adept at problem-solving and
-                        passionate about combining clean code with modern design aesthetics.
-                    </p>
+                    <p>{bio}</p>
                 </div>
+
+                <div className="stats-strip">
+                    {stats.map((s) => (
+                        <div className="stat" key={s.label}>
+                            <span className="stat-value">{s.value}</span>
+                            <span className="stat-label">{s.label}</span>
+                        </div>
+                    ))}
+                </div>
+
                 <div className="about-stats">
                     <div className="info-group">
                         <h3 className="info-title">Languages</h3>
                         <ul className="info-list">
-                            <li><strong>Arabic:</strong> Native</li>
-                            <li><strong>English:</strong> Advanced</li>
-                            <li><strong>French:</strong> Intermediate</li>
+                            {languages.map((l) => (
+                                <li key={l.name}><strong>{l.name}</strong><span>{l.level}</span></li>
+                            ))}
                         </ul>
                     </div>
                     <div className="info-group">
                         <h3 className="info-title">Interests</h3>
                         <ul className="info-list">
-                            <li>Graphics and 3D Design</li>
-                            <li>Video production</li>
-                            <li>Football</li>
-                            <li>Gaming</li>
+                            {interests.map((i) => <li key={i}>{i}</li>)}
                         </ul>
                     </div>
                 </div>

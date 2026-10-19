@@ -1,6 +1,6 @@
 .projects {
     padding: 100px 0;
-    background-color: var(--bg-primary);
+    background-color: var(--bg-color);
 }
 
 .projects .section-title {
@@ -32,12 +32,12 @@
 
 .projects-wrapper::before {
     left: 0;
-    background: linear-gradient(to right, var(--bg-primary), transparent);
+    background: linear-gradient(to right, var(--bg-color), transparent);
 }
 
 .projects-wrapper::after {
     right: 0;
-    background: linear-gradient(to left, var(--bg-primary), transparent);
+    background: linear-gradient(to left, var(--bg-color), transparent);
 }
 
 .projects-grid {
@@ -132,6 +132,8 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid var(--card-border);
     scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -207,8 +209,55 @@
     background-color: gray;
 }
 
+.project-image img {
+    object-position: left top;
+}
+
+.project-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #2c3e50, #1a252f);
+}
+
 .project-content {
     padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.project-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.project-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.project-action:hover {
+    border-color: var(--accent-color);
+    background-color: var(--accent-color);
+    color: var(--bg-secondary);
 }
 
 .project-content h3 {

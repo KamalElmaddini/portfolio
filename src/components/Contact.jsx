@@ -12,8 +12,8 @@ const Contact = () => {
                     <div className="contact-info">
                         <h3>Let's Talk</h3>
                         <p>
-                            I'm currently available for freelance work or full-time opportunities.
-                            If you have a project that needs some creative touch, feel free to contact me.
+                            Open to opportunities in Europe — developer roles, digital communication and content projects,
+                            and social projects with young people. Freelance work welcome too.
                         </p>
 
                         <div className="contact-details">

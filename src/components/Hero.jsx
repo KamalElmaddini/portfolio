@@ -1,40 +1,51 @@
 import React from 'react';
-import { ArrowRight, Github, Linkedin, Mail, Instagram, Facebook, MessageCircle, FileDown } from 'lucide-react';
+import { Github, Linkedin, Mail, Instagram, Facebook, MessageCircle, FileDown, Plane, Youtube, Twitter } from 'lucide-react';
 import './Hero.css';
 import profileImg from '../assets/profile.jpg';
+import { contact, heroText } from '../data/profile';
+
+const cvUrl = `${import.meta.env.BASE_URL}cv.pdf`;
 
 const Hero = () => {
+    const { socials } = contact;
     return (
         <section id='home' className="hero">
             <div className="container hero-container">
                 <div className="hero-content">
                     <span className="subtitle">Hello, I'm</span>
-                    <h1 className="title">Kamal Elmaddini</h1>
-                    <h2 className="role">Full-Stack Developer</h2>
-                    <p className="description">
-                        I create sophisticated websites and applications for discerning clients.
-                        Based in Rabat, Morocco.
+                    <h1 className="title">{contact.name}</h1>
+                    <h2 className="role">
+                        {contact.title}
+                        <span className="role-sub">{contact.subtitle}</span>
+                    </h2>
+                    <p className="description">{heroText}</p>
+
+                    <p className="relocation">
+                        <Plane size={16} />
+                        {contact.relocation}
                     </p>
 
                     <div className="hero-btns">
                         <a href="#contact" className="btn">Contact Me</a>
-                        <a href="/cv.pdf" download="Kamal_Elmaddini_CV.pdf" className="btn btn-outline">
+                        <a href={cvUrl} download="Kamal_Elmaddini_CV.pdf" className="btn btn-outline">
                             <FileDown size={20} style={{ marginRight: '8px' }} />
                             Download CV
                         </a>
                     </div>
                     <div className="footer-social">
-                        <a href="https://github.com/KamalElmaddini" target="_blank" rel="noopener noreferrer" aria-label="Github"><Github size={20} /></a>
-                        <a href="https://www.linkedin.com/in/kamal-elmaddini/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin size={20} /></a>
-                        <a href="https://www.instagram.com/kamal_madini/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={20} /></a>
-                        <a href="https://www.facebook.com/kamal.elmaddini/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook size={20} /></a>
-                        <a href="https://wa.me/212638964606" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><MessageCircle size={20} /></a>
-                        <a href="mailto:kamalelmaddini@gmail.com" aria-label="Email"><Mail size={20} /></a>
+                        <a href={socials.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Github size={20} /></a>
+                        <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin size={20} /></a>
+                        <a href={socials.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube"><Youtube size={20} /></a>
+                        <a href={socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={20} /></a>
+                        <a href={socials.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook size={20} /></a>
+                        <a href={socials.x} target="_blank" rel="noopener noreferrer" aria-label="X"><Twitter size={20} /></a>
+                        <a href={socials.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><MessageCircle size={20} /></a>
+                        <a href={`mailto:${contact.email}`} aria-label="Email"><Mail size={20} /></a>
                     </div>
                 </div>
                 <div className="hero-image">
                     <div className="image-wrapper">
-                        <img src={profileImg} alt="Kamal Elmaddini" className="profile-img" />
+                        <img src={profileImg} alt={contact.name} className="profile-img" />
                     </div>
                 </div>
             </div>

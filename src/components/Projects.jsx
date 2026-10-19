@@ -1,77 +1,15 @@
 import React from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ExternalLink, Github } from 'lucide-react';
 import './Projects.css';
+import { projects } from '../data/profile';
 
 const Projects = () => {
-    // ... (projects array remains same)
-    const projects = [
-        {
-            id: 1,
-            title: 'E-commerce Platform',
-            description: 'A full-featured online store built with React and Node.js. Includes shopping cart, user authentication, and payment integration.',
-            tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-            image: 'https://placehold.co/600x400/1a252f/FFF?text=E-commerce',
-            demoLink: '#',
-            codeLink: '#'
-        },
-        {
-            id: 2,
-            title: 'Task Management App',
-            description: 'A productivity application for managing daily tasks and projects. Features drag-and-drop interface and real-time updates.',
-            tags: ['React', 'Firebase', 'Tailwind CSS'],
-            image: 'https://placehold.co/600x400/1a252f/FFF?text=Task+App',
-            demoLink: '#',
-            codeLink: '#'
-        },
-        {
-            id: 3,
-            title: 'Weather Dashboard',
-            description: 'A weather application that displays current conditions and forecasts for cities worldwide using the OpenWeatherMap API.',
-            tags: ['React', 'API Integration', 'Chart.js'],
-            image: 'https://placehold.co/600x400/1a252f/FFF?text=Weather+App',
-            demoLink: '#',
-            codeLink: '#'
-        },
-        {
-            id: 4,
-            title: 'Social Media Dashboard',
-            description: 'A dashboard for tracking social media metrics across multiple platforms. Visualizes data with interactive charts.',
-            tags: ['React', 'D3.js', 'Material UI'],
-            image: 'https://placehold.co/600x400/1a252f/FFF?text=Social+Dashboard',
-            demoLink: '#',
-            codeLink: '#'
-        },
-        {
-            id: 5,
-            title: 'Fitness Tracker',
-            description: 'A mobile-first application for tracking workouts and nutrition. Syncs with external health APIs.',
-            tags: ['React Native', 'Redux', 'Express'],
-            image: 'https://placehold.co/600x400/1a252f/FFF?text=Fitness+Tracker',
-            demoLink: '#',
-            codeLink: '#'
-        },
-        {
-            id: 6,
-            title: 'Recipe Finder',
-            description: 'An application to search for recipes based on ingredients. Includes dietary filters and meal planning features.',
-            tags: ['React', 'Spoonacular API', 'CSS Modules'],
-            image: 'https://placehold.co/600x400/1a252f/FFF?text=Recipe+Finder',
-            demoLink: '#',
-            codeLink: '#'
-        }
-    ];
-
     const scrollRef = React.useRef(null);
 
     const scroll = (direction) => {
         const { current } = scrollRef;
         if (current) {
-            const scrollAmount = 300; // Adjust scroll amount as needed
-            if (direction === 'left') {
-                current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-            } else {
-                current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            }
+            current.scrollBy({ left: direction === 'left' ? -300 : 300, behavior: 'smooth' });
         }
     };
 
@@ -85,21 +23,31 @@ const Projects = () => {
                     </button>
                     <div className="projects-grid" ref={scrollRef}>
                         {projects.map((project) => (
-                            <div key={project.id} className="project-card">
+                            <div key={project.title} className="project-card">
                                 <div className="project-image">
-                                    <img src={project.image} alt={project.title} />
-                                    <div className="project-links">
-                                        <a href={project.demoLink} className="btn-link primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                                        <a href={project.codeLink} className="btn-link secondary" target="_blank" rel="noopener noreferrer">View Code</a>
-                                    </div>
+                                    {project.image ? (
+                                        <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" />
+                                    ) : (
+                                        <div className="project-fallback">{project.title}</div>
+                                    )}
                                 </div>
                                 <div className="project-content">
                                     <h3>{project.title}</h3>
                                     <p>{project.description}</p>
                                     <div className="project-tags">
-                                        {project.tags.map((tag, index) => (
-                                            <span key={index} className="tag">{tag}</span>
+                                        {project.tags.map((tag) => (
+                                            <span key={tag} className="tag">{tag}</span>
                                         ))}
+                                    </div>
+                                    <div className="project-actions">
+                                        {project.demoLink && (
+                                            <a href={project.demoLink} className="project-action" target="_blank" rel="noopener noreferrer">
+                                                <ExternalLink size={16} /> Live demo
+                                            </a>
+                                        )}
+                                        <a href={project.codeLink} className="project-action" target="_blank" rel="noopener noreferrer">
+                                            <Github size={16} /> Code
+                                        </a>
                                     </div>
                                 </div>
                             </div>

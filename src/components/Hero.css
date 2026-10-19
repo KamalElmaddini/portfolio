@@ -39,9 +39,32 @@
 }
 
 .role {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.role-sub {
+    display: block;
+    font-size: 1.3rem;
     color: var(--text-secondary);
     font-weight: 400;
+    margin-top: 6px;
+}
+
+.relocation {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 8px 16px;
+    border-radius: 50px;
     margin-bottom: 30px;
 }
 
@@ -49,7 +72,7 @@
     font-size: 1.2rem;
     color: var(--text-secondary);
     max-width: 550px;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
     line-height: 1.8;
 }
 
@@ -95,10 +118,11 @@
 .profile-img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center top;
     border-radius: 50%;
     border: 4px solid var(--bg-secondary);
-    background-color: #1a252f;
+    background-color: #f2f1ee;
     transition: transform 0.3s ease;
 }
 
@@ -145,11 +169,36 @@
         justify-content: center;
     }
 
-    .social-links {
+    .social-links,
+    .hero-content .footer-social {
         justify-content: center;
     }
 
     .title {
         font-size: 3.5rem;
+    }
+
+    .role {
+        font-size: 1.8rem;
+    }
+
+    .role-sub {
+        font-size: 1.1rem;
+    }
+
+    .relocation {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2.6rem;
+        letter-spacing: -1px;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        align-items: stretch;
     }
 }

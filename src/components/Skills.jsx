@@ -1,54 +1,35 @@
 import React from 'react';
-import { Code, Database, Layout, Smartphone, Server, Terminal } from 'lucide-react';
+import { Database, Layout, Server, TrendingUp } from 'lucide-react';
 import './Skills.css';
+import { skills } from '../data/profile';
 
-const skillsData = [
-    {
-        category: "Languages",
-        icon: <Code size={24} />,
-        items: ["JavaScript (ES6+)", "PHP", "Java", "HTML5", "CSS3", "SQL", "Python"]
-    },
-    {
-        category: "Front-End",
-        icon: <Layout size={24} />,
-        items: ["React.js", "Tailwind CSS", "Bootstrap", "Redux", "jQuery"]
-    },
-    {
-        category: "Back-End",
-        icon: <Server size={24} />,
-        items: ["Node.js", "Laravel", "Express.js"]
-    },
-    {
-        category: "Databases",
-        icon: <Database size={24} />,
-        items: ["MySQL", "PL/SQL", "MongoDB", "PostgreSQL"]
-    },
-    {
-        category: "Tools & Soft Skills",
-        icon: <Terminal size={24} />,
-        items: ["GitHub", "Docker", "Postman", "VSCode", "Figma", "Project Management"]
-    }
-];
+const icons = {
+    layout: Layout,
+    server: Server,
+    database: Database,
+    trending: TrendingUp,
+};
 
 const Skills = () => {
     return (
         <section id="skills" className="skills-section">
             <div className="container">
-                <h2 className="section-title">Technical Skills</h2>
+                <h2 className="section-title">Skills</h2>
                 <div className="skills-grid">
-                    {skillsData.map((skill, index) => (
-                        <div className="skill-card" key={index}>
-                            <div className="skill-icon">
-                                {skill.icon}
+                    {skills.map((skill) => {
+                        const Icon = icons[skill.icon];
+                        return (
+                            <div className="skill-card" key={skill.category}>
+                                <div className="skill-icon">
+                                    <Icon size={24} />
+                                </div>
+                                <h3 className="skill-category">{skill.category}</h3>
+                                <ul className="skill-list">
+                                    {skill.items.map((item) => <li key={item}>{item}</li>)}
+                                </ul>
                             </div>
-                            <h3 className="skill-category">{skill.category}</h3>
-                            <ul className="skill-list">
-                                {skill.items.map((item, idx) => (
-                                    <li key={idx}>{item}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>

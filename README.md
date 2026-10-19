@@ -32,7 +32,7 @@ To run this project locally on your machine:
 1. **Clone the repository**
    ```bash
    git clone https://github.com/KamalElmaddini/portfolio.git
-   cd kamal-portfolio
+   cd portfolio
    ```
 
 2. **Install dependencies**
@@ -70,4 +70,4 @@ This command builds the project and pushes the `dist` folder to the `gh-pages` b
 
 ---
 
-© 2025 [Kamal Elmaddini](https://github.com/KamalElmaddini). All Rights Reserved.
+© 2026 [Kamal Elmaddini](https://github.com/KamalElmaddini). All Rights Reserved.
